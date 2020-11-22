@@ -188,143 +188,31 @@
         </form>
 
         <div class="row">
+          {% for vehicle in vehicles %}
           <div class="col-md-4">
             <div class="service-item">
-              <img src="assets/images/product-1-720x480.jpg" alt="">
+              <img src="{{vehicle.imageURL}}" alt="">
               <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
+                <h4>{{vehicle.name}}</h4>
                 <div style="margin-bottom:10px;">
                   <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
+                      <!-- <del><sup>Rs</sup>{{vehicle.price}} </del> &nbsp; -->
+                    Rs. </span>{{vehicle.price}}
+                  
                 </div>
 
                 <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
+                  <!-- <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp; -->
+                  <i class="fa fa-cube"></i> {{vehicle.engine_capacity}} cc &nbsp;&nbsp;&nbsp;
                   <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
                 </p>
-                <a href="car-details.html" class="filled-button">View More</a>
+                <a href="details/{{vehicle.id}}" class="filled-button">View More</a>
               </div>
             </div>
 
             <br>
           </div>
-
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-2-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
-
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-3-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
-
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-4-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
-
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-5-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
-
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
-
-          <div class="col-md-4">
-            <div class="service-item">
-              <img src="assets/images/product-6-720x480.jpg" alt="">
-              <div class="down-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
-                <div style="margin-bottom:10px;">
-                  <span>
-                      <del><sup>$</sup>11999 </del> &nbsp; <sup>$</sup>11779
-                  </span>
-                </div>
-
-                <p>
-                  <i class="fa fa-dashboard"></i> 130 000km &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cube"></i> 1800 cc &nbsp;&nbsp;&nbsp;
-                  <i class="fa fa-cog"></i> Manual &nbsp;&nbsp;&nbsp;
-                </p>
-                <a href="car-details.html" class="filled-button">View More</a>
-              </div>
-            </div>
-
-            <br>
-          </div>
+          {% endfor %}
         </div>
 
         <br>
