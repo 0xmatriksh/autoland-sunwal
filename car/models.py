@@ -21,3 +21,12 @@ class Cars(models.Model):
         except:
             url = ''
         return url
+
+class Customer(models.Model):
+    name = models.CharField(max_length=200,null=True)
+    email = models.EmailField(null=True,blank=False)
+    phone = models.CharField(max_length=200,null=True)
+    message = models.CharField(max_length=200,blank=True,null=True)
+
+    def __str__(self):
+        return self.name

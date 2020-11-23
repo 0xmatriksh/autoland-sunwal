@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from .models import Cars
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    return render(request,'car/index.html')
+    vehicles = Cars.objects.all()[:3]
+    context = {'vehicles':vehicles}
+    return render(request,'car/index.html',context)
 
 def cars(request):
     vehicles = Cars.objects.all()
+    paginator = Paginator(vehicles,3)
+    page = request.GET.get('page')
+    vehicles = paginator.get_page(page)
     context = {'vehicles':vehicles}
     return render(request, 'car/cars.html',context)
 
