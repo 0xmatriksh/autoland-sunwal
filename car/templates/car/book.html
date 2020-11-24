@@ -1,0 +1,67 @@
+{% extends 'car/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Book Your Car</h1>
+          <span>We have over 20 years of experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="box-element" id="form-wrapper">
+                <form id="form">
+                    {%csrf_token%}
+                    <div id="user-info">
+                        <div class="form-field">
+                            <input required class="form-control" type="text" name="name" placeholder="Name..">
+                        </div>
+                        <br>
+                        <div class="form-field">
+                            <input required class="form-control" type="email" name="email" placeholder="Email..">
+                        </div>
+                        <br>
+                        <div class="form-field">
+                            <input required class="form-control" type="tel" name="phone" placeholder="Phone..">
+                        </div>
+                        <br>
+                        <div class="form-field">
+                            <textarea name="message" placeholder="Message.." ></textarea>
+                        </div>
+                        <br>
+                    </div>
+                    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+                </form>
+            </div>
+        </div>
+        
+	<div class="col-lg-6">
+		<div class="box-element">
+            <a  class="btn btn-outline-dark" href="{% url 'car' %}">&#x2190; Back to Cars</a>
+            <hr>
+            <h3>Book Summary</h3>
+            <hr>
+            <div class="cart-row">
+                <div style="flex:2"><img class="row-image" src="{{vehicle.imageURL}}" style="height: 150px;"></div>
+                <div style="flex:2"><p>{{vehicle.name}}</p></div>
+                <div style="flex:1"><p>{{vehicle.price}}</p></div>
+                <!-- <div style="flex:1"><p>x{{food.quantity}}</p></div> -->
+            </div>
+            
+            <!-- <h5>Foods:   {{order.total_items}}</h5> -->
+            <!-- <h5>Total:   Rs{{order.total_price}}</h5> -->
+        </div>
+	</div>
+    </div>
+    </div>
+    <br>
+    
+{% endblock content %}
+

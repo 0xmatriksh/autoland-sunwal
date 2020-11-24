@@ -27,3 +27,8 @@ def details(request,pk):
     print(vehicle)
     context = {'vehicle':vehicle}
     return render(request,'car/details.html',context)
+
+def book(request,pk):
+    vehicle = Cars.objects.get(id=pk)
+    context = {'vehicle':vehicle}
+    return render(request,'car/book.html',context)
