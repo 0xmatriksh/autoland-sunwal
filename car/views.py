@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Cars
+from .models import Cars,Customer
+import json,datetime
+from django.http import JsonResponse
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -32,3 +34,23 @@ def book(request,pk):
     vehicle = Cars.objects.get(id=pk)
     context = {'vehicle':vehicle}
     return render(request,'car/book.html',context)
+
+def bookCar(request):
+    # now = datetime.datetime.now().timestamp()
+    # print(now)
+    data = json.loads(request.body)
+    print(data)
+    customer,created = Customer.objects.get_or_create(email=data['userForm']['email'])
+    customer.name = data['userForm']['name']
+    customer.phone = data['userForm']['phone']
+    customer.message = data['userForm']['message']
+    carnum = data['userForm']['car']
+    customer.carname = Cars.objects.get(id=carnum).name
+    customer.save()
+
+    # book = Book.objects.create(customer=customer,complete=False)
+    # print(customer)
+    # # book.save()
+    
+    return JsonResponse("it was booked",safe=False)
+    
