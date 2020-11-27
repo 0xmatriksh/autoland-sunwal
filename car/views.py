@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cars,Customer
+from .models import Cars,Customer,Book
 import json,datetime
 from django.http import JsonResponse
 from django.core.paginator import Paginator
@@ -36,21 +36,26 @@ def book(request,pk):
     return render(request,'car/book.html',context)
 
 def bookCar(request):
-    # now = datetime.datetime.now().timestamp()
-    # print(now)
+    now = datetime.datetime.now()
+    print(now)
     data = json.loads(request.body)
     print(data)
     customer,created = Customer.objects.get_or_create(email=data['userForm']['email'])
     customer.name = data['userForm']['name']
     customer.phone = data['userForm']['phone']
     customer.message = data['userForm']['message']
-    carnum = data['userForm']['car']
-    customer.carname = Cars.objects.get(id=carnum).name
+   
     customer.save()
+    print(customer)
+    print(type(customer))
 
-    # book = Book.objects.create(customer=customer,complete=False)
+    book = Book.objects.create(customer=customer,complete=False)
+    carnum = data['userForm']['car']
+    Cars.objects.get(id=carnum)
+    book.carname = Cars.objects.get(id=carnum).name
+    book.date_booked = now
     # print(customer)
-    # # book.save()
+    book.save()
     
     return JsonResponse("it was booked",safe=False)
     
