@@ -11,15 +11,32 @@ def home(request):
     return render(request,'car/index.html',context)
 
 def cars(request):
-    vehicles = Cars.objects.all()
-    paginator = Paginator(vehicles,3)
+    
+    all_vehicles = Cars.objects.all()
+    paginator = Paginator(all_vehicles,3)
     page = request.GET.get('page')
     vehicles = paginator.get_page(page)
-    context = {'vehicles':vehicles}
+    print(vehicles)
+    context = {
+        'all_vehicles':all_vehicles,
+        'vehicles':vehicles
+        }
     return render(request, 'car/cars.html',context)
 
 def about(request):
     return render(request, 'car/about.html')
+
+def search(request):
+    all_vehicles = Cars.objects.all()
+    if request.method == 'POST':
+        data = request.POST['car']
+        print(data)
+        vehicle = Cars.objects.get(id=data)
+    context = {
+        'all_vehicles':all_vehicles,
+        'vehicle':vehicle
+        }
+    return render(request, 'car/search.html',context)
 
 def contact(request):
     return render(request, 'car/contact.html')

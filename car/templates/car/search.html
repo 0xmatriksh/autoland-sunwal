@@ -189,7 +189,6 @@
         </form>
 
         <div class="row">
-          {% for vehicle in vehicles %}
           <div class="col-md-4">
             <div class="service-item">
               <img src="{{vehicle.imageURL}}" alt="">
@@ -213,13 +212,13 @@
 
             <br>
           </div>
-          {% endfor %}
+       
         </div>
 
         <br>
         <br>
 
-        <nav>
+        <!-- <nav>
           <ul class="pagination pagination-lg justify-content-center">
             {% if vehicles.has_previous %}
             <li class="page-item">
@@ -246,7 +245,7 @@
             </li>
             {% endif %}
           </ul>
-        </nav>
+        </nav> -->
 
         <br>
         <br>
