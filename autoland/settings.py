@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','sunwalautoland.herokuapp.com']
 
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'autoland.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcr140cppe17sk',
+        'HOST': 'ec2-50-19-26-235.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'omdazoxeurcutl',
+        'PASSWORD': '4387e3a801b8b16a04325549fb4577bd33ea990c9ac852586c6a2bdf108f5a2e',
     }
 }
 
