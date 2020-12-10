@@ -29,9 +29,9 @@ def about(request):
 def search(request):
     all_vehicles = Cars.objects.all()
     if request.method == 'POST':
-        data = request.POST['car']
+        data = request.POST['name_car']
         print(data)
-        vehicle = Cars.objects.get(id=data)
+        vehicle = Cars.objects.get(name=data)
     context = {
         'all_vehicles':all_vehicles,
         'vehicle':vehicle

@@ -21,13 +21,20 @@
           <div class="row">
               <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                   <div class="form-group">
-                      <label>Name:</label>
+                    <label>Name:</label>
+                    <input name="name_car" list="vehiclelist" type="text" placeholder="Car name.." class="form-control" style="width: 300px;">
+                    <datalist id="vehiclelist">
+                      {% for vehicle in all_vehicles %}
+                      <option value="{{vehicle.name}}"></option>
+                      {% endfor %}
+                    </datalist>
+                      
            
-                       <select name="car" class="form-control">
+                       <!-- <select name="car" class="form-control">
                          {% for vehicle in all_vehicles %}
                             <option value="{{vehicle.id}}">{{vehicle.name}}</option>
                           {% endfor %}
-                       </select>
+                       </select> -->
                   </div>
               </div>
       
