@@ -9,6 +9,8 @@ class Cars(models.Model):
     engine_capacity = models.FloatField(max_length=200)
     power = models.IntegerField(null=True)
     ground_clearance = models.IntegerField(null=True)
+    description = models.TextField(max_length=1500, null=True)
+    extras = models.TextField(max_length=1500,null=True)
     photo = models.ImageField(null=True,blank=True)
 
     def __str__(self):

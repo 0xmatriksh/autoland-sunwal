@@ -28,6 +28,10 @@
                       <option value="{{vehicle.name}}"></option>
                       {% endfor %}
                     </datalist>
+                    {% for vehicle in all_vehicles %}
+                      <p>{{vehicle.name}}</p>
+                      {% endfor %}
+
                       
            
                        <!-- <select name="car" class="form-control">
