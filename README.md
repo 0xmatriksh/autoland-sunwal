@@ -9,7 +9,7 @@ The first thing to do is to clone the repository:
 
 ```sh
 $ git clone https://github.com/tprototype/autoland-sunwal.git
-$ cd sample-django-app
+$ cd autoland-sunwal
 ```
 
 Create a virtual environment to install dependencies in and activate it:
@@ -31,7 +31,6 @@ session operates in a virtual environment set up by `virtualenv2`.
 Once `pip` has finished downloading the dependencies:
 
 ```sh
-(env)$ cd project
 (env)$ python manage.py runserver
 ```
 
